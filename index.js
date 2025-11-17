@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const connectToDB = require("./db");
-const UserModel = require("./schemas/userSchemas");
+
+const userRouter = require("./routes/userRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 999;
@@ -13,25 +14,10 @@ app.use(express.json());
 
 connectToDB();
 
-app.get("/", async (req, res) => {
-  console.log(req.body, "req");
-  const { firstName, email, password, address, phoneNumber } = req.body;
-  try {
-    const data = await UserModel.create({
-      firstName: firstName,
-      email: email,
-      password: password,
-      address: address,
-      phoneNumber: phoneNumber,
-    });
+app.use("/user", userRouter);
 
-    console.log("Created user:", data);
-
-    res.json("User created successfully!");
-  } catch (err) {
-    console.error(err);
-    res.json(err);
-  }
+app.get("/", (req, res) => {
+  res.send("hello world, working");
 });
 
 app.listen(PORT, () => {
