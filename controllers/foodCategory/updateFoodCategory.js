@@ -1,12 +1,14 @@
 const FoodCategoryModel = require("../../schemas/foodCategorySchema");
 
 const putFoodCategory = async (req, res) => {
-  const { id, firstName, email, password, address, phoneNumber } = req.body;
+  const { id, categoryName } = req.body;
 
   try {
     const data = await FoodCategoryModel.findByIdAndUpdate(
-      id,
-      { categoryName },
+      {
+        id,
+        categoryName,
+      },
       { new: true }
     );
 
