@@ -6,11 +6,6 @@ const FoodCategorySchema = new Schema(
       type: String,
       required: [true, "Category name is required"],
     },
-
-    categoryName: {
-      type: String,
-      required: [true, "Category name is required"],
-    },
   },
   {
     timestamps: true,
