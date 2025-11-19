@@ -4,6 +4,7 @@ const connectToDB = require("./db");
 
 const userRouter = require("./routes/userRoutes");
 const foodCategoryRouter = require("./routes/foodCategoryRoutes");
+const authenticationRouter = require("./routes/authentication");
 
 const app = express();
 const PORT = process.env.PORT || 999;
@@ -17,6 +18,7 @@ connectToDB();
 
 app.use("/user", userRouter);
 app.use("/food-category", foodCategoryRouter);
+app.use("/authentication", authenticationRouter);
 
 app.get("/", (req, res) => {
   res.send("hello world, working");

@@ -1,13 +1,16 @@
 const UserModel = require("../../schemas/userSchemas");
 
+const SALT_ROUND = 10;
+
 const createUser = async (req, res) => {
   const { firstName, email, password, address, phoneNumber } = req.body;
-  console.log("create user controller working");
+
+  const hashedPassword = await bycrypt.hash(password, SALT_ROUND);
   try {
     const data = await UserModel.create({
       firstName: firstName,
       email: email,
-      password: password,
+      password: hashedPassword,
       address: address,
       phoneNumber: phoneNumber,
     });
