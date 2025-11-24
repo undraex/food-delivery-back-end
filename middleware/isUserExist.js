@@ -1,3 +1,5 @@
+const UserModel = require("../schemas/userSchemas");
+
 const isUserExist = async (req, res, next) => {
   const { email } = req.body;
   if (!email) {
@@ -6,7 +8,7 @@ const isUserExist = async (req, res, next) => {
 
   const user = await UserModel.findOne({ email: email });
   if (!user) {
-    res.status(404).json("user not found");
+    res.status(404).json("User not found");
   } else {
     req.user = user;
     next();

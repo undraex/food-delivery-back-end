@@ -9,7 +9,7 @@ const isEmailExist = async (req, res, next) => {
   if (!user) {
     next();
   } else {
-    res.status(404).json(" User found");
+    res.status(404).json("User found");
   }
 };
 module.exports = isEmailExist;

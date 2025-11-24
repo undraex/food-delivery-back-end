@@ -4,7 +4,6 @@ const UserSchema = new Schema(
   {
     firstName: {
       type: String,
-      required: [true, "First name is required"],
     },
 
     email: {
@@ -19,12 +18,10 @@ const UserSchema = new Schema(
 
     phoneNumber: {
       type: String,
-      required: [true, "Phone number is required"],
     },
 
     address: {
       type: String,
-      required: [true, "Address is required"],
     },
 
     role: {
