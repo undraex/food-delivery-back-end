@@ -6,3 +6,8 @@ const generateToken = (user) => {
 };
 
 module.exports = { generateToken };
+
+// localStorage.setItem("authToken", response.data.token);
+
+// toast.success("Login successful!");
+// toast.error(err.response?.data || "User not found");

@@ -11,8 +11,8 @@ foodCategoryRouter.get("/", getFoodCategory);
 
 foodCategoryRouter.put("/", verifyJwt, updateFoodCategory);
 
-foodCategoryRouter.delete("/", deleteFoodCategory);
+foodCategoryRouter.delete("/", verifyJwt, deleteFoodCategory);
 
-foodCategoryRouter.post("/", createFoodCategory);
+foodCategoryRouter.post("/", verifyJwt, createFoodCategory);
 
 module.exports = foodCategoryRouter;

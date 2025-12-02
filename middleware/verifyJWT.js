@@ -2,18 +2,18 @@ const jwt = require("jsonwebtoken");
 
 const JWT_SECRET = "kiss";
 
-fetch("link", {
-  headers: {
-    authentication: "Bearer token",
-  },
-});
+// fetch("link", {
+//   headers: {
+//     authentication: "Bearer token",
+//   },
+// });
 
 const verifyJwt = (req, res, next) => {
-  const authentication = req.headers["authorization"];
-  if (!authentication) {
+  const authorization = req.headers["authorization"];
+  if (!authorization) {
     return res.status(401).json({ message: "No token provided" });
   }
-  const token = authentication.split(" ")[1];
+  const token = authorization.split(" ")[1];
 
   jwt.verify(token, JWT_SECRET, (err, decoded) => {
     if (err)
