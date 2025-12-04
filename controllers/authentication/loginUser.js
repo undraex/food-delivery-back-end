@@ -1,6 +1,6 @@
+const { generateToken } = require("../../middleware/generateToken");
 const UserModel = require("../../schemas/userSchemas");
 const bcrypt = require("bcrypt");
-const { generateToken } = require("../../middleware/generateToken");
 
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
